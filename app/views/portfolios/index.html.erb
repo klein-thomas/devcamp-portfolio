@@ -1,8 +1,10 @@
 <h1>My Portfolios</h1>
 
 <% @portfolio_items.each do |portfolio| %>
-  <p><%= portfolio.title %></p>
-  <p><%= portfolio.subtitle %></p>
-  <p><%= portfolio.body %></p>
-  <%= image_tag portfolio.main_image %>
+  <div style="border: 1px #ccc solid;">
+    <p><%= portfolio.title %></p>
+    <p><%= portfolio.subtitle %></p>
+    <p><%= portfolio.body %></p>
+    <%= image_tag portfolio.main_image unless portfolio.main_image.nil? %>
+  </div>
 <% end %>
