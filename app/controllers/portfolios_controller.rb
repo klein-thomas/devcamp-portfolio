@@ -24,7 +24,7 @@ class PortfoliosController < ApplicationController
       end
     end
   end
-  
+
   def update
     @portfolio = Portfolio.find(params[:id])
 
