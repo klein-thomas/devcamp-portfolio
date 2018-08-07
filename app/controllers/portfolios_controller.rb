@@ -23,7 +23,7 @@ class PortfoliosController < ApplicationController
         format.json { render json: @portfolio.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
 
   def update
     @portfolio = Portfolio.find(params[:id])
