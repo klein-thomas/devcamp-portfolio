@@ -38,3 +38,10 @@ end
     thumb_image: "http://via.placeholder.com/60x60"
   )
 }
+
+3.times { |i| 
+  Technology.create!(
+    name: "Technology #{i}",
+    portfolio: Portfolio.last
+  )
+}
