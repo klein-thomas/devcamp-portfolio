@@ -2,13 +2,4 @@
 
 <%= link_to "Create new item", new_portfolio_path %>
 
-<% @portfolio_items.each do |portfolio| %>
-  <div style="border: 1px #ccc solid; margin: 15px;">
-    <p><%= link_to portfolio.title, portfolio_show_path(portfolio) %></p>
-    <p><%= portfolio.subtitle %></p>
-    <p><%= portfolio.body %></p>
-    <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
-    <%= link_to "Edit this portfolio item", edit_portfolio_path(portfolio) %>
-    <%= link_to 'Delete portfolio item', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </div>
-<% end %>
+<%= render partial: 'portfolio_item', collection: @portfolio_items, as: :portfolio %>
