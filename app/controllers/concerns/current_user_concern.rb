@@ -8,11 +8,11 @@ module CurrentUserConcern
   private
 
   def guest_user
-    OpenStruct.new(
-      name: "Guest user",
-      first_name: "Guest",
-      last_name: "User",
-      email: "guest@guest.com"
-    )
+    guest = GuestUser.new { |g|
+      g.name = "Guest User"
+      g.first_name = "Guest"
+      g.last_name = "User"
+      g.email = "guest@guest.com"
+    }
   end
 end
