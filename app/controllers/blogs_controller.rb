@@ -76,7 +76,7 @@ class BlogsController < ApplicationController
 
     redirect_to blogs_url, notice: "Blog has been updated"
   end
-  
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -86,6 +86,6 @@ class BlogsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def blog_params
-    params.require(:blog).permit(:title, :body)
+    params.require(:blog).permit(:title, :body, :topic_id)
   end
 end

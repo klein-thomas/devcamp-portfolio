@@ -21,6 +21,11 @@
     <%= form.text_area :body %>
   </div>
 
+  <div class="field">
+    <%= form.label :topic_id %>
+    <%= form.select :topic_id, Topic.all.map { |topic| [topic.title, topic.id] } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
