@@ -13,19 +13,8 @@
 
   <body>
   
-    <div class="blog-masthead">
-      <div class="container">
-        <%= render "shared/blog_nav" %>
-      </div>
-    </div>
-  
-    <div class="blog-header">
-      <div class="container">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
-        <%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %>
-      </div>
-    </div>
+    <%= render "shared/blog_nav" %>
+    <%= render "shared/blog_head" %>
   
     <div class="container">
   
@@ -41,11 +30,7 @@
   
     </div>
   
-    <footer class="blog-footer">
-      <%= render "shared/application_footer" %>
-    </footer>
-  
-
+    <%= render "shared/blog_footer" %>
 
   <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

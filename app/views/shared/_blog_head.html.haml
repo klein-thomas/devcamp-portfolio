@@ -1,0 +1,7 @@
+.blog-header
+  .container
+    %h1.blog-title
+      My Boostrap Blog
+    %p.lead.blog-description
+      A blog built with Rails and Bootstrap
+    = link_to 'New Blog', new_blog_path if logged_in?(:site_admin)
