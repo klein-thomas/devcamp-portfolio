@@ -1,9 +1,9 @@
 module ApplicationHelper
-  def login_helper
+  def login_helper(style = '')
     if current_user.is_a? GuestUser
-      render 'app/guest_user_menu'
+      render partial: 'app/guest_user_menu', locals: { style: style }
     else
-      render 'app/logged_user_menu'
+      render partial: 'app/logged_user_menu', locals: { style: style }
     end
   end
 
