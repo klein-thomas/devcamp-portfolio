@@ -1,0 +1,19 @@
+#navbarHeader.collapse.bg-dark
+  .container
+    .row
+      .col-sm-8.py-4
+        %h4.text-white About
+        %p.text-muted Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.
+      .col-sm-4.py-4
+        %h4.text-white Contact
+        %ul.list-unstyled
+          = nav_helper do |title, url, options|
+            %li
+              = link_to title, url, class: ['text-white', ('active' if options[:active])]
+          %li
+            = login_helper('text-white')
+.navbar.navbar-dark.bg-dark
+  .container.d-flex.justify-content-between
+    %a.navbar-brand{href: "#"} Portfolio
+    %button.navbar-toggler{"aria-controls" => "navbarHeader", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarHeader", "data-toggle" => "collapse", type: "button"}
+      %span.navbar-toggler-icon

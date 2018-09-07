@@ -1,4 +1,3 @@
-@import "bootstrap";
 
 /*
  * Globals
@@ -157,29 +156,6 @@ body {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 55rem;
+    width: 42rem;
   }
-}
-
-
-/*
- * Custom styles
- */
-.card-block {
-  color:black;
-  text-align: left;
-}
-
-.auth-links a {
-  color: black;
-}
-
-.register-text {
-  text-align: right;
-}
-
-.login > .card {
-  width: 22rem;
-  float: none;
-  margin: 0 auto;
 }

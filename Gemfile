@@ -65,3 +65,12 @@ gem 'jquery-rails'
 
 # Petergate for authorization
 gem 'petergate', '~> 1.8', '>= 1.8.1'
+
+# HAML support
+gem 'haml', '~> 5.0', '>= 5.0.4'
+
+# Fontawesome
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+
+# Pagination with Kaminari
+gem 'kaminari', '~> 1.1', '>= 1.1.1'

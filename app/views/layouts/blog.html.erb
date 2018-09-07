@@ -12,15 +12,28 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
+  
+    <%= render "shared/blog_nav" %>
+    <%= render "shared/blog_head" %>
+  
+    <div class="container">
+  
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+          <%= yield %>
+        </div>
+        
+        <%= render "shared/blog_sidebar" %>
+        
+      </div>
+  
+    </div>
+  
+    <%= render "shared/blog_footer" %>
+
+  <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <%= login_helper %>
-    
-    <%= yield %>
-
-    <%= render "shared/nav", location: "top" %>
-
     <%= source_helper 'blog' %>
   </body>
 </html>

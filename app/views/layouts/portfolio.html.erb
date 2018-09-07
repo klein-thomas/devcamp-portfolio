@@ -12,15 +12,11 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render "shared/portfolio_nav" %>    
+    <%= render "shared/portfolio_head" unless logged_in?(:site_admin) %>    
 
-    <%= render "shared/nav", location: "top" %>
-    
-    <%= login_helper %>
-        
     <%= yield %>
-
-    <%= source_helper 'portfolio' %>
+    
+    <%= render "shared/portfolio_footer" %>
   </body>
 </html>

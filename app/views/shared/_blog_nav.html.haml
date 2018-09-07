@@ -1,0 +1,8 @@
+.blog-masthead
+  .container
+    .blog-masthead.clearfix
+      .container
+        %nav.nav.blog-nav
+          = nav_helper do |title, url, options|
+            = link_to title, url, class: ['nav-link', ('active' if options[:active])]
+          = login_helper('nav-link')

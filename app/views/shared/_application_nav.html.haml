@@ -1,0 +1,7 @@
+.masthead.clearfix
+  .inner
+    %h3.masthead-brand My Portfolio
+    %nav.nav.nav-masthead
+      = nav_helper do |title, url, options|
+        = link_to title, url, class: ['nav-link', ('active' if options[:active])]
+      = login_helper('nav-link')
