@@ -1,0 +1,23 @@
+= form_for(portfolio_item) do |form|
+  .row
+    .col-md-6
+      .form-group
+        = form.label :title
+        = form.text_field :title, class: 'form-control'
+      .form-group
+        = form.label :subtitle
+        = form.text_field :subtitle, class: 'form-control'
+    .col-md-6
+      .form-group
+        = form.label :body
+        = form.text_area :body, rows: 10, class: 'form-control'
+  .row
+    .col-md-12
+      %h2
+        Technologies used
+      = form.fields_for :technologies do |technology_form|
+        .form-group
+          = technology_form.label :name
+          = technology_form.text_field :name, class: 'form-control'
+  .actions
+    = form.submit class: 'btn btn-primary btn-block'
