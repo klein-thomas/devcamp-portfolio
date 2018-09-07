@@ -7,16 +7,9 @@
       .col-sm-4.py-4
         %h4.text-white Contact
         %ul.list-unstyled
-          %li
-            = link_to "Home", root_path, class: 'text-white'
-          %li
-            = link_to "About Me", about_path, class: 'text-white'
-          %li
-            = link_to "Blogs",  blogs_path, class: 'text-white'
-          %li
-            = link_to "Portfolios", portfolios_path, class: 'text-white'
-          %li
-            = link_to "Contact", contact_path, class: 'text-white'
+          = nav_helper do |title, url, options|
+            %li
+              = link_to title, url, class: ['text-white', ('active' if options[:active])]
           %li
             = login_helper('text-white')
 .navbar.navbar-dark.bg-dark
