@@ -62,6 +62,7 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 # Bootstrap + jQuery
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Petergate for authorization
 gem 'petergate', '~> 1.8', '>= 1.8.1'
