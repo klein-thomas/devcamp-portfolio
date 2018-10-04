@@ -62,6 +62,7 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 # Bootstrap + jQuery
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Petergate for authorization
 gem 'petergate', '~> 1.8', '>= 1.8.1'
@@ -74,3 +75,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
 # Pagination with Kaminari
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
+# Image upload management
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'mini_magick', '~> 4.9', '>= 4.9.2'

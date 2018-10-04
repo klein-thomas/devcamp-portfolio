@@ -4,6 +4,7 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "jquery-ui";
 
 body {
   min-height: 75rem; /* Can be removed; just added for demo purposes */
@@ -63,4 +64,8 @@ footer {
 
 footer p {
   margin-bottom: .25rem;
+}
+
+.portfolio-container {
+  padding-top: 30px;
 }

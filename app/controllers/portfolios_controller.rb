@@ -1,9 +1,9 @@
 class PortfoliosController < ApplicationController
   layout 'portfolio'
-  access all: %i[show index], user: { except: %i[destroy new create update edit] }, site_admin: :all
+  access all: %i[show index], user: { except: %i[destroy new create update edit sort] }, site_admin: :all
 
   def index
-    @portfolio_items = Portfolio.all
+    @portfolio_items = Portfolio.all.order(position: :asc)
   end
 
   def new
@@ -27,7 +27,7 @@ class PortfoliosController < ApplicationController
         format.json { render json: @portfolio.errors, status: :unprocessable_entity }
       end
     end
-end
+  end
 
   def update
     @portfolio = Portfolio.find(params[:id])
@@ -58,6 +58,12 @@ end
     end
   end
 
+  def sort
+    params[:order].each do |_key, value|
+      Portfolio.find(value[:id]).update(position: value[:position])
+    end
+  end
+
   private
 
   def portfolio_params
@@ -65,6 +71,8 @@ end
       :title,
       :subtitle, 
       :body,
+      :main_image,
+      :thumb_image,
       technologies_attributes: [:name]
     )
   end

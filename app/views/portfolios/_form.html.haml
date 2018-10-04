@@ -1,4 +1,12 @@
 = form_for(portfolio_item) do |form|
+  - if portfolio_item.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(portfolio_item.errors.count, "error")
+        prohibited this blog from being saved:
+      %ul
+        - portfolio_item.errors.full_messages.each do |message|
+          %li= message
   .row
     .col-md-6
       .form-group
@@ -7,6 +15,14 @@
       .form-group
         = form.label :subtitle
         = form.text_field :subtitle, class: 'form-control'
+      .form-group
+        %label.btn.btn-primary
+          Upload a main image file
+          = form.file_field :main_image, style: 'display: none'
+      .form-group
+        %label.btn.btn-primary
+          Upload a thumb image file
+          = form.file_field :thumb_image, style: 'display: none'
     .col-md-6
       .form-group
         = form.label :body
