@@ -79,4 +79,3 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 # Image upload management
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
-gem 'dotenv-rails', '~> 2.5'
