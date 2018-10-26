@@ -32,8 +32,8 @@
       %h2
         Technologies used
       = form.fields_for :technologies do |technology_form|
-        .form-group
-          = technology_form.label :name
-          = technology_form.text_field :name, class: 'form-control'
+        = render 'technology_fields', f: technology_form
+      .add-association
+        = link_to_add_association 'Add technology', form, :technologies
   .actions
     = form.submit class: 'btn btn-primary btn-block'
