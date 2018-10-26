@@ -16,7 +16,8 @@
     <%= render "shared/portfolio_head" unless logged_in?(:site_admin) %>    
 
     <%= yield %>
-    
+
+    <%= alerts %>
     <%= render "shared/portfolio_footer" %>
   </body>
 </html>
