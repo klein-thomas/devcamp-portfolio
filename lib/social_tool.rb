@@ -6,11 +6,10 @@ module SocialTool
       config.consumer_secret      = twitter_credentials[:consumer_secret]
       config.access_token         = twitter_credentials[:access_token]
       config.access_token_secret  = twitter_credentials[:access_token_secret]
-      puts config.inspect
     end
 
     client.search('#rails', result_type: 'recent').take(6).collect do |tweet|
-      "#{tweet.user.screen_name}: #{tweet.name}"
+      "#{tweet.user.screen_name}: #{tweet.text}"
     end
   end
 end
