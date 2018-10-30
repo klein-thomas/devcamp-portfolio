@@ -27,6 +27,7 @@ module ApplicationHelper
       { title: 'About Me', url: about_path },
       { title: 'Blogs', url: blogs_path },
       { title: 'Portfolios', url: portfolios_path },
+      { title: 'Tech news', url: tech_news_path },
       { title: 'Contact', url: contact_path }
     ]
   end
