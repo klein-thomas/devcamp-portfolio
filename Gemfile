@@ -86,3 +86,6 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 # Dynamic forms with JavaScript
 gem 'cocoon'
 gem 'gritter', '~> 1.2'
+
+# Redis database
+gem 'redis', '~> 4.0', '>= 4.0.2'

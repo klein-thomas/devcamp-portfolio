@@ -1,0 +1,13 @@
+.comment-card
+  .card
+    .card-body
+      .row
+        .col-md-2
+          = gravatar_helper comment.user
+        .col-md-10
+          .content= comment.content
+          .comment-attribution
+            Comment posted by
+            %span.comment-user-name= comment.user.name
+            = distance_of_time_in_words(comment.created_at, Time.now)
+            ago
