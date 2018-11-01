@@ -12,10 +12,10 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require cable
-//= require turbolinks
 //= require jquery3
 //= require jquery-ui
+//= require cable
+//= require turbolinks
 //= require cocoon
 //= require gritter
 //= require popper
