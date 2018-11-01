@@ -22,8 +22,14 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @blog = Blog.includes(:comments).friendly.find(params[:id])
+
+    unless @blog.published? || logged_in?(:site_admin)
+      redirect_to blogs_path, notice: 'You are not authorized to view this page.'
+      return
+    end
+
     @comment = Comment.new
-    
+
     @page_title = @blog.title
   end
 
