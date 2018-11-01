@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+  include PaginateBlogs
+
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
   layout "blog"
   access all: %i[show index], user: { except: %i[destroy new create update edit] }, site_admin: :all
@@ -7,15 +9,7 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @page_title = "My blog posts"
-    blog_scope = if logged_in? :site_admin
-                   Blog.all
-                 else
-                   Blog.published
-                 end
-    @blogs = blog_scope
-             .recent
-             .page(params[:page])
-             .per(5)
+    @blogs = paginate_blogs(logged_in?(:site_admin) ? Blog.all : Blog.published)
   end
 
   # GET /blogs/1
