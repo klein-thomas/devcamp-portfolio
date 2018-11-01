@@ -7,9 +7,13 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @page_title = "My blog posts"
-    @blogs = Blog
-             .all
-             .order(status: 'DESC', created_at: 'DESC')
+    blog_scope = if logged_in? :site_admin
+                   Blog.all
+                 else
+                   Blog.published
+                 end
+    @blogs = blog_scope
+             .recent
              .page(params[:page])
              .per(5)
   end

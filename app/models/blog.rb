@@ -9,4 +9,10 @@ class Blog < ApplicationRecord
   belongs_to :topic
 
   has_many :comments, dependent: :destroy
+
+  scope :published, -> { where status: :published }
+
+  def self.recent
+    order(created_at: :desc)
+  end
 end
