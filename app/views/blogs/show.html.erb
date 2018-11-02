@@ -1,12 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @blog.title %></h2>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+    <% unless @blog.topic.nil? %>
+    <li class="breadcrumb-item"><%= link_to @blog.topic.title, topic_path(@blog.topic) %></li>
+    <% end %>
+    <li class="breadcrumb-item active"><%= @blog.title %></li>
+
+    <% if logged_in?(:site_admin) %>
+    <li class="blog-inline-actions">
+      <%= link_to fa_icon('pencil-square-o'), edit_blog_path(@blog) %>
+      <%= link_to fa_icon('trash'), @blog, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+    </li>
+    <% end %>
+  </ol>
+</nav>
 
 <p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
   <%= markdown @blog.body %>
 </p>
 
@@ -16,5 +27,4 @@
   <%= render @blog.comments %>
 </div>
 
-<%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:site_admin) %> |
 <%= link_to 'Back', blogs_path %>
