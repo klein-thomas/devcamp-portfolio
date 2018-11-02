@@ -10,9 +10,9 @@
     = form.collection_select :topic_id, Topic.all, :id, :title, { selected: blog.topic&.id, include_blank: true }, class: 'form-control'
   .form-group
     = form.radio_button :status, 'draft'
-    = form.label :status, 'draft'
+    = form.label :status_draft, 'Draft'
     = form.radio_button :status, 'published'
-    = form.label :status, 'published'
+    = form.label :status_published, 'Published'
   .form-group
     = form.label :body
     = form.text_area :body, class: 'form-control', rows: 15
