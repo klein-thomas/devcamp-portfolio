@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+  include PaginateBlogs
+
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
   layout "blog"
   access all: %i[show index], user: { except: %i[destroy new create update edit] }, site_admin: :all
@@ -7,19 +9,21 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @page_title = "My blog posts"
-    @blogs = Blog
-             .all
-             .order(status: 'DESC', created_at: 'DESC')
-             .page(params[:page])
-             .per(5)
+    @blogs = paginate_blogs(logged_in?(:site_admin) ? Blog.all : Blog.published)
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
     @blog = Blog.includes(:comments).friendly.find(params[:id])
+
+    unless @blog.published? || logged_in?(:site_admin)
+      redirect_to blogs_path, notice: 'You are not authorized to view this page.'
+      return
+    end
+
     @comment = Comment.new
-    
+
     @page_title = @blog.title
   end
 
@@ -94,6 +98,6 @@ class BlogsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def blog_params
-    params.require(:blog).permit(:title, :body, :topic_id)
+    params.require(:blog).permit(:title, :body, :topic_id, :status)
   end
 end

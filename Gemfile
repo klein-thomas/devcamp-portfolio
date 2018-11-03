@@ -89,3 +89,7 @@ gem 'gritter', '~> 1.2'
 
 # Redis database
 gem 'redis', '~> 4.0', '>= 4.0.2'
+
+# Markdpwn integration * syntqax highlighting
+gem 'redcarpet', '~> 3.4'
+gem 'coderay', '~> 1.1', '>= 1.1.2'

@@ -4,4 +4,5 @@
       My Boostrap Blog
     %p.lead.blog-description
       A blog built with Rails and Bootstrap
-    = link_to 'New Blog', new_blog_path if logged_in?(:site_admin)
+    %span= link_to 'New Blog', new_blog_path if logged_in?(:site_admin)
+    %span= link_to 'Topics', topics_path
